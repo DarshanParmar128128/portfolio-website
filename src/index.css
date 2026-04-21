@@ -1,0 +1,114 @@
+/* =============================================
+   GLOBAL STYLES & CSS VARIABLES
+   ============================================= */
+
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+:root {
+  /* Color palette */
+  --bg: #0A0A0F;
+  --bg2: #12121A;
+  --bg3: #1A1A26;
+  --accent: #6C63FF;
+  --accent2: #A78BFA;
+  --accent3: #38BDF8;
+  --text: #F0EEF8;
+  --muted: #9491A8;
+  --border: rgba(108, 99, 255, 0.18);
+  --card: rgba(255, 255, 255, 0.04);
+
+  /* Typography */
+  --ff: "DM Sans", sans-serif;
+  --fs: "DM Serif Display", serif;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: var(--ff);
+  font-size: 16px;
+  line-height: 1.7;
+  overflow-x: hidden;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+/* =============================================
+   SHARED SECTION UTILITIES
+   ============================================= */
+
+.section-wrapper {
+  padding: 5.5rem 2.5rem;
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+/* Sections with dark card background */
+.section-card {
+  background: var(--bg2);
+  border-radius: 24px;
+  margin: 0 1.5rem;
+}
+
+.section-tag {
+  display: inline-block;
+  font-size: 0.75rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--accent2);
+  margin-bottom: 0.75rem;
+  font-weight: 500;
+}
+
+.section-title {
+  font-family: var(--fs);
+  font-size: clamp(2rem, 5vw, 3.2rem);
+  line-height: 1.1;
+  margin-bottom: 1.5rem;
+}
+
+.divider {
+  width: 48px;
+  height: 3px;
+  background: linear-gradient(90deg, var(--accent), var(--accent3));
+  border-radius: 3px;
+  margin-bottom: 2.5rem;
+}
+
+/* =============================================
+   ANIMATIONS
+   ============================================= */
+
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(18px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes barIn {
+  to { transform: scaleX(1); }
+}
+
+/* =============================================
+   RESPONSIVE BREAKPOINTS
+   ============================================= */
+
+@media (max-width: 768px) {
+  .section-wrapper {
+    padding: 4rem 1.25rem;
+  }
+
+  .section-card {
+    margin: 0 0.5rem;
+  }
+}
