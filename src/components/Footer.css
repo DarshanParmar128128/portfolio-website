@@ -1,0 +1,23 @@
+/* Footer.css */
+
+.footer {
+  text-align: center;
+  padding: 2.5rem 1rem;
+  color: var(--muted);
+  font-size: 0.85rem;
+  border-top: 1px solid var(--border);
+}
+
+.footer__copy {
+  margin-bottom: 0.5rem;
+}
+
+.footer__links a {
+  color: var(--muted);
+  margin: 0 0.5rem;
+  transition: color 0.2s;
+}
+
+.footer__links a:hover {
+  color: var(--accent2);
+}

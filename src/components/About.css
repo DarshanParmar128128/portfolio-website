@@ -1,0 +1,73 @@
+/* About.css */
+
+.about__inner {
+  /* inherits section-wrapper padding */
+}
+
+.about__grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 3rem;
+  align-items: center;
+}
+
+/* Avatar circle */
+.about__img-wrap {
+  display: flex;
+  justify-content: center;
+}
+
+.about__avatar {
+  width: 240px;
+  height: 240px;
+  border-radius: 24px;
+  background: linear-gradient(135deg, var(--accent), var(--accent3));
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--fs);
+  font-size: 5rem;
+  font-style: italic;
+  color: #fff;
+  letter-spacing: -0.05em;
+  box-shadow: 0 0 60px rgba(108, 99, 255, 0.25);
+}
+
+/* Bio paragraphs */
+.about__text p {
+  color: var(--muted);
+  line-height: 1.9;
+  margin-bottom: 1rem;
+}
+
+.about__text p strong {
+  color: var(--text);
+}
+
+/* Chips row */
+.about__chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  margin-top: 1.5rem;
+}
+
+.chip {
+  padding: 0.35rem 0.9rem;
+  border-radius: 100px;
+  border: 1px solid var(--border);
+  font-size: 0.8rem;
+  color: var(--muted);
+  background: var(--card);
+}
+
+/* Mobile: stack columns, hide avatar */
+@media (max-width: 768px) {
+  .about__grid {
+    grid-template-columns: 1fr;
+  }
+
+  .about__img-wrap {
+    display: none;
+  }
+}
