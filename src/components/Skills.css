@@ -1,23 +1,22 @@
-/* Skills.css */
-
 .skills__grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
   gap: 1.25rem;
 }
 
-/* ---- Skill Card ---- */
 .skill-card {
   background: var(--card);
   border: 1px solid var(--border);
   border-radius: 16px;
   padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
   transition: transform 0.2s, border-color 0.2s, box-shadow 0.2s;
   position: relative;
   overflow: hidden;
 }
 
-/* Subtle gradient overlay on hover */
 .skill-card::before {
   content: '';
   position: absolute;
@@ -38,36 +37,52 @@
 }
 
 .skill-card__icon {
-  font-size: 2rem;
-  margin-bottom: 0.75rem;
+  font-size: 2.4rem;
   line-height: 1;
+  margin-bottom: 0.5rem;
+  display: flex;
+  align-items: center;
 }
 
 .skill-card__name {
-  font-size: 1.05rem;
-  font-weight: 500;
-  margin-bottom: 0.5rem;
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--text);
 }
 
 .skill-card__level {
-  font-size: 0.8rem;
+  font-size: 0.78rem;
   color: var(--muted);
-  margin-bottom: 0.85rem;
+  line-height: 1.4;
+  flex: 1;
 }
 
-/* Progress bar track */
+.skill-card__footer {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin-top: 0.5rem;
+}
+
 .bar-track {
+  flex: 1;
   height: 4px;
   background: rgba(255, 255, 255, 0.08);
   border-radius: 4px;
   overflow: hidden;
 }
 
-/* Animated fill — starts at scaleX(0), JS transitions to scaleX(1) */
 .bar-fill {
   height: 100%;
   border-radius: 4px;
-  background: linear-gradient(90deg, var(--accent), var(--accent3));
   transform-origin: left;
   transition: transform 1s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.skill-card__percent {
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: var(--muted);
+  min-width: 2.5rem;
+  text-align: right;
 }

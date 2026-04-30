@@ -1,5 +1,3 @@
-/* Hero.css */
-
 .hero {
   min-height: 100vh;
   display: flex;
@@ -10,9 +8,9 @@
   margin: 0 auto;
   position: relative;
   overflow: hidden;
+  gap: 3rem;
 }
 
-/* Background blobs */
 .hero__blob {
   position: absolute;
   pointer-events: none;
@@ -20,28 +18,40 @@
 }
 
 .hero__blob--1 {
-  top: -120px; right: -200px;
-  width: 600px; height: 600px;
+  top: -120px;
+  right: -200px;
+  width: 600px;
+  height: 600px;
   background: radial-gradient(circle, rgba(108, 99, 255, 0.12) 0%, transparent 70%);
   z-index: 0;
 }
 
 .hero__blob--2 {
-  bottom: -80px; left: -150px;
-  width: 400px; height: 400px;
+  bottom: -80px;
+  left: -150px;
+  width: 400px;
+  height: 400px;
   background: radial-gradient(circle, rgba(56, 189, 248, 0.08) 0%, transparent 70%);
 }
 
-/* All hero children sit above blobs */
 .hero > *:not(.hero__blob) {
   position: relative;
   z-index: 1;
 }
 
-/* Staggered fade-up animations */
+.hero__content {
+  display: grid;
+  grid-template-columns: 1.2fr 1fr;
+  gap: 4rem;
+  align-items: center;
+}
+
 .hero__eyebrow {
-  font-size: 0.85rem;
-  letter-spacing: 0.15em;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.78rem;
+  letter-spacing: 0.18em;
   text-transform: uppercase;
   color: var(--accent2);
   margin-bottom: 1.2rem;
@@ -50,11 +60,19 @@
   animation: fadeUp 0.7s 0.2s forwards;
 }
 
+.hero__eyebrow::before {
+  content: '';
+  display: inline-block;
+  width: 24px;
+  height: 1px;
+  background: var(--accent2);
+}
+
 .hero__name {
   font-family: var(--fs);
   font-size: clamp(3rem, 9vw, 6rem);
   line-height: 1;
-  margin-bottom: 0.5rem;
+  margin-bottom: 1rem;
   opacity: 0;
   animation: fadeUp 0.7s 0.35s forwards;
 }
@@ -67,22 +85,28 @@
 }
 
 .hero__title {
-  font-size: clamp(1.1rem, 3vw, 1.6rem);
-  color: var(--muted);
-  margin-bottom: 1.5rem;
-  font-weight: 300;
+  font-size: clamp(1rem, 2.5vw, 1.25rem);
+  color: var(--text);
+  margin-bottom: 1.25rem;
+  font-weight: 400;
+  line-height: 1.5;
   opacity: 0;
   animation: fadeUp 0.7s 0.5s forwards;
 }
 
 .hero__desc {
-  font-size: 1rem;
+  font-size: 0.95rem;
   color: var(--muted);
-  max-width: 520px;
-  line-height: 1.8;
-  margin-bottom: 2.5rem;
+  max-width: 480px;
+  line-height: 1.85;
+  margin-bottom: 2.25rem;
   opacity: 0;
   animation: fadeUp 0.7s 0.65s forwards;
+}
+
+.hero__desc strong {
+  color: var(--text);
+  font-weight: 600;
 }
 
 .hero__btns {
@@ -96,13 +120,151 @@
 
 .hero__social {
   display: flex;
-  gap: 1rem;
+  gap: 0.75rem;
   margin-top: 1.5rem;
   opacity: 0;
   animation: fadeUp 0.7s 0.95s forwards;
 }
 
-/* ---- Shared Button Styles ---- */
+.hero__right {
+  display: flex;
+  justify-content: center;
+  opacity: 0;
+  animation: fadeUp 0.7s 0.5s forwards;
+}
+
+.hero__card {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 24px;
+  padding: 2rem 1.75rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.6rem;
+  width: 100%;
+  max-width: 300px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.hero__card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 16px 48px rgba(108, 99, 255, 0.15);
+}
+
+.hero__avatar {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--accent), var(--accent3));
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--fs);
+  font-size: 2.2rem;
+  font-style: italic;
+  color: #fff;
+  letter-spacing: -0.03em;
+  margin-bottom: 0.5rem;
+}
+
+.hero__card-name {
+  font-size: 1.05rem;
+  font-weight: 600;
+  color: var(--text);
+  margin: 0;
+}
+
+.hero__card-role {
+  font-size: 0.8rem;
+  color: var(--accent2);
+  margin: 0;
+  letter-spacing: 0.05em;
+}
+
+.hero__card-divider {
+  width: 100%;
+  height: 1px;
+  background: var(--border);
+  margin: 0.75rem 0;
+}
+
+.hero__card-stats {
+  display: flex;
+  justify-content: space-around;
+  width: 100%;
+  gap: 0.5rem;
+}
+
+.hero__card-stat {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.15rem;
+}
+
+.stat-val {
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: var(--text);
+  letter-spacing: -0.03em;
+}
+
+.stat-key {
+  font-size: 0.68rem;
+  color: var(--muted);
+}
+
+.hero__card-tags {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.5rem;
+  margin-top: 0.5rem;
+}
+
+.hero__tag {
+  font-size: 0.72rem;
+  padding: 0.3rem 0.75rem;
+  border-radius: 100px;
+  border: 1px solid var(--border);
+  color: var(--muted);
+  background: transparent;
+}
+
+.hero__marquee {
+  width: 100%;
+  overflow: hidden;
+  border-top: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+  padding: 0.85rem 0;
+  mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
+  -webkit-mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
+}
+
+.hero__marquee-track {
+  display: flex;
+  gap: 0;
+  width: max-content;
+  animation: marquee 28s linear infinite;
+}
+
+.hero__marquee-item {
+  font-size: 0.8rem;
+  letter-spacing: 0.08em;
+  color: var(--muted);
+  white-space: nowrap;
+  padding: 0 1.5rem;
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+}
+
+.hero__marquee-dot {
+  font-size: 0.5rem;
+  color: var(--accent);
+}
+
 .btn-primary {
   display: inline-flex;
   align-items: center;
@@ -139,7 +301,6 @@
   color: var(--text);
 }
 
-/* Social icon links */
 .social-link {
   width: 42px;
   height: 42px;
@@ -158,8 +319,36 @@
   transform: translateY(-2px);
 }
 
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(20px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes marquee {
+  from { transform: translateX(0); }
+  to   { transform: translateX(-50%); }
+}
+
 @media (max-width: 768px) {
   .hero {
     padding: 5rem 1.25rem 3rem;
+    gap: 2rem;
+  }
+
+  .hero__content {
+    grid-template-columns: 1fr;
+    gap: 2.5rem;
+  }
+
+  .hero__right {
+    order: -1;
+  }
+
+  .hero__card {
+    max-width: 100%;
+  }
+
+  .hero__desc {
+    max-width: 100%;
   }
 }
