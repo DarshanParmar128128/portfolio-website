@@ -41,6 +41,25 @@ const SKILLS_MARQUEE = [
   "Clean Code",
   "UI Engineering",
 ];
+const handleResumeClick = () => {
+  const fileUrl = "/resume.pdf";
+
+  // Open resume in new tab (VIEW)
+  const newTab = window.open(fileUrl, "_blank");
+
+  // If popup blocked, stop here (important)
+  if (!newTab) return;
+
+  // Trigger download after slight delay
+  setTimeout(() => {
+    const link = document.createElement("a");
+    link.href = fileUrl;
+    link.download = "resume.pdf";
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+  }, 800); // delay improves success rate
+};
 
 function Hero() {
   return (
@@ -70,10 +89,11 @@ function Hero() {
           </p>
 
           <div className="hero__btns">
-            <a href="#" className="btn-primary" download>
+            <button className="btn-primary" onClick={handleResumeClick}>
               <DownloadIcon />
-              Download Resume
-            </a>
+              View & Download Resume
+            </button>
+
             <a href="#projects" className="btn-ghost">
               View Projects →
             </a>
