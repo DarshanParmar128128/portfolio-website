@@ -33,13 +33,13 @@ const SKILLS = [
     percent: 65,
     color: '#61DAFB',
   },
-  {
-    Icon: SiTailwindcss,
-    name: 'Tailwind CSS',
-    level: 'Utility-First Styling Basics',
-    percent: 55,
-    color: '#38BDF8',
-  },
+  // {
+  //   Icon: SiTailwindcss,
+  //   name: 'Tailwind CSS',
+  //   level: 'Utility-First Styling Basics',
+  //   percent: 55,
+  //   color: '#38BDF8',
+  // },
 ];
 
 function SkillCard({ Icon, name, level, percent, color }) {
