@@ -110,7 +110,7 @@ function Hero() {
               <GitHubIcon />
             </a>
             <a
-              href="https://www.linkedin.com/in/darshan-parmar-4b465930b/"
+              href="https://www.linkedin.com/in/darshanparmar128/"
               target="_blank"
               rel="noopener noreferrer"
               className="social-link"

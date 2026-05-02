@@ -4,7 +4,7 @@ import './Footer.css';
 
 const SOCIAL_LINKS = [
   { label: 'GitHub',   href: 'https://github.com/DarshanParmar128128' },
-  { label: 'LinkedIn', href: 'https://www.linkedin.com/in/darshan-parmar-4b465930b/' },
+  { label: 'LinkedIn', href: 'https://www.linkedin.com/in/darshanparmar128/' },
 ];
 
 function Footer() {
